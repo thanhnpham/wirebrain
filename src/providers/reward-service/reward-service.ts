@@ -27,47 +27,47 @@ export class RewardServiceProvider {
     return new Promise((resolve, reject) => {
       userData.logins += 1
 
-      let newCount = this.rewardChance(user, userData.rewardCount);
-      userData.rewardCount = newCount;
-      resolve(userData);
+      // let newCount = this.rewardChance(user, userData.rewardCount);
+      // userData.rewardCount = newCount;
+      // resolve(userData);
 
-      // if (userData.logins == 2) {
-      //   let firstReward = this.rewardChance(user, userData.rewardCount);
-      //   userData.rewardCount = firstReward;
-      //   resolve(userData);
-      // }
-      // else if (userData.login % 10 == 0) {
-      //   let newCount = this.rewardChance(user, userData.rewardCount);
-      //   userData.rewardCount = newCount;
-      //   resolve(userData);
-      // }
-      // else {
-      //   resolve(userData);
-      // }
+      if (userData.logins == 2) {
+        let firstReward = this.rewardChance(user, userData.rewardCount);
+        userData.rewardCount = firstReward;
+        resolve(userData);
+      }
+      else if (userData.login % 10 == 0) {
+        let newCount = this.rewardChance(user, userData.rewardCount);
+        userData.rewardCount = newCount;
+        resolve(userData);
+      }
+      else {
+        resolve(userData);
+      }
     });
   }
 
   rewardChance(user, count) {
-     count++;
-     this.generateReward(user, count);
-     return count;
+    //  count++;
+    //  this.generateReward(user, count);
+    //  return count;
     
-    //  if (count == 0) {
-    //   count++;
-    //   this.generateReward(user, count);
-    //   return count;
-    // }
-    // else {
-    //   let chance = Math.floor((Math.random() * 100) + 1);
-    //   if (chance > 50) {
-    //     count++;
-    //     this.generateReward(user, count)
-    //     return count;
-    //   }
-    //   else {
-    //     return count;
-    //   }
-    // }
+     if (count == 0) {
+      count++;
+      this.generateReward(user, count);
+      return count;
+    }
+    else {
+      let chance = Math.floor((Math.random() * 100) + 1);
+      if (chance > 50) {
+        count++;
+        this.generateReward(user, count)
+        return count;
+      }
+      else {
+        return count;
+      }
+    }
   }
 
   generateReward(user, count) {

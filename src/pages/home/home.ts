@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
+import { AngularFireAuth } from 'angularfire2/auth';
+// import * as firebase from 'firebase/app';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
 //import { FCM } from '@ionic-native/fcm';
 
@@ -20,6 +20,7 @@ export class HomePage implements OnInit {
 
   logPage: any;
   loggedIn: any;
+  checkOut: any;
 
   constructor(public navCtrl: NavController, private afAuth: AngularFireAuth,
               private userService: UserServiceProvider
@@ -29,6 +30,7 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.logPage = 'LoginPage';
+    this.checkOut = 'CheckoutPage';
     this.afAuth.auth.onAuthStateChanged( user => {
       if (user) {
         this.loggedIn = this.userService.user = user.email;

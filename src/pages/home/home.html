@@ -6,10 +6,13 @@
     <button ion-button clear [navPush]="logPage">Sign In</button>
   </ion-toolbar>
   <ion-toolbar *ngIf="loggedIn" color="secondary">
+    <button ion-button icon-left outline clear small (click)="myPagePush(checkOut)">
+      <ion-icon name="cart"></ion-icon>Checkout
+    </button>
     <button ion-button icon-left clear small>
       <ion-icon name="contact"></ion-icon>{{loggedIn}} logged in
     </button>
-    <button ion-button outline small (click)="signOff()" >Sign Out</button>
+    <button ion-button icon-left outline clear small (click)="signOff()" >Sign Out</button>
   </ion-toolbar>
 </ion-header>
 <ion-content>

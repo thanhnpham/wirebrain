@@ -1,6 +1,14 @@
 
+npm install -g ionic cordova
+
+npm install -g 
+
 npm install angularfire2@4.0.0-rc.2 --save --save-exact
 
 npm install firebase@4.4.0 --save --save-exact
 
 npm install promise-polyfill --save
+
+ionic cordova plugin add com.paypal.cordova.mobilesdk --save
+
+npm install --save @ionic-native/paypal

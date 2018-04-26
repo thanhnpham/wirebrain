@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import 'rxjs/add/operator/map'
-import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
+import { AngularFireAuth } from 'angularfire2/auth';
+// import * as firebase from 'firebase/app';
 import { AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { RewardServiceProvider } from '../reward-service/reward-service';
+
 /*
   Generated class for the UserServiceProvider provider.
 
@@ -13,7 +14,7 @@ import { RewardServiceProvider } from '../reward-service/reward-service';
   and Angular DI.
 */
 @Injectable()
-export class UserServiceProvider {
+export class UserServiceProvider implements OnInit {
 
   items: FirebaseListObservable<any>;
   user: string;
@@ -22,9 +23,13 @@ export class UserServiceProvider {
   constructor(private afAuth: AngularFireAuth,  public alertCtrl: AlertController,
               private storage: Storage, private fbDb: AngularFireDatabase,
               private reward: RewardServiceProvider) {
-    this.items = fbDb.list('/users');
-    
+       
   }
+
+  ngOnInit() {
+    this.items = this.fbDb.list('/users');
+  }
+
   displayAlert(alertTitle, alertSub) {
     let theAlert = this.alertCtrl.create( {
       title: alertTitle,
@@ -121,5 +126,9 @@ export class UserServiceProvider {
         this.displayAlert('Error loggin in', err);
         return err;
       });
+  }
+
+  returnUser() {
+    return Promise.resolve(this.user);
   }
 }
