@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CartServiceProvider } from '../../providers/cart-service/cart-service';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
+import { HomePage } from '../home/home';
+import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal';
 
 /**
  * Generated class for the CheckoutPage page.
@@ -29,6 +31,7 @@ export class CheckoutPage implements OnInit {
   discountTotal: number = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
+             private payPal: PayPal,
              private cartSvc: CartServiceProvider, private userSvc: UserServiceProvider) {
   }
 
