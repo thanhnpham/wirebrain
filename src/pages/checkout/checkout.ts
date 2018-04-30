@@ -129,14 +129,14 @@ export class CheckoutPage implements OnInit {
     else {
       this.payCart(this.orderTotal);
       this.cartSvc.emptyCart();
-      this.userSvc.displayAlert('Thank you', `Your order for ${this.discountTotal} has been paid`);
+      this.userSvc.displayAlert('Thank you', `Your order for ${this.orderTotal} has been paid`);
       this.navCtrl.push(HomePage);
     }
   }
   payCart(amt) {
     this.payPal.init({
       PayPalEnvironmentProduction: '',
-      PayPalEnvironmentSandbox: ''      
+      PayPalEnvironmentSandbox: 'EA-vRT8FFGFnGdzRBQmQQHCva3fAir0rQQyOnMZIsKk2xPzS6hyOdf6cHqxspH6Sy1JLytYdplJPAPQW'      
     }).then(() => {
       this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({        
       })).then(() => {
