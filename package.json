@@ -31,6 +31,7 @@
     "angularfire2": "4.0.0-rc.2",
     "com.paypal.cordova.mobilesdk": "^3.5.0",
     "cordova-plugin-fcm": "^2.1.2",
+    "cordova-plugin-ionic": "^4.1.6",
     "firebase": "4.4.0",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
@@ -48,7 +49,12 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-fcm": {},
-      "com.paypal.cordova.mobilesdk": {}
+      "com.paypal.cordova.mobilesdk": {},
+      "cordova-plugin-ionic": {
+        "APP_ID": "e2a364b1",
+        "CHANNEL_NAME": "Master",
+        "UPDATE_METHOD": "background"
+      }
     }
   }
 }
