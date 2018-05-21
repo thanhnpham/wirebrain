@@ -17,6 +17,7 @@ import { RewardModalPageModule } from '../pages/reward-modal/reward-modal.module
 import { FCM } from '@ionic-native/fcm';
 import { MenuServiceProvider } from '../providers/menu-service/menu-service';
 import { CartServiceProvider } from '../providers/cart-service/cart-service';
+import { PayPal } from '@ionic-native/paypal';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAU11-01ozIm8QVTv6AMx0u_wr6EJOVCYI",
@@ -55,7 +56,8 @@ export const firebaseConfig = {
     RewardServiceProvider,
     FCM,
     MenuServiceProvider,
-    CartServiceProvider
+    CartServiceProvider,
+    PayPal
   ]
 })
 export class AppModule {}
